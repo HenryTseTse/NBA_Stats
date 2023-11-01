@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{%block title%}Advanced Player Stat Search{%endblock%}
+
+{%block content%}
+<h1>Advanced Player Search</h1>
+<caption><b>Example:</b> <br>
+First Name: <b>Kobe</b>, Last Name: <b>Bryant</b> <br>
+Start Date: <b>2001-1-12</b>, End Date: <b>2014-4-13</b> <br>
+Points: <b>50</b>, Assists: <b>5</b>, Rebounds: <b>5</b>
+</caption>
+<br>
+<br>
+<form action="/api/adv-player-stats" method="POST" id="player-search-form">
+    {{ form.hidden_tag() }}
+
+    {% for field in form if field.widget.input_type != 'hidden' %}
+    <p>
+        {{ field(placeholder=field.label.text, class="form-control", id=field.label.field_id) }}
+        {% for error in field.errors %}
+        <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </p>
+    {% endfor %}
+    <button class="btn btn-primary btn-block btn-lg">Search</button>
+</form>
+<a href="/api/player-stats" class="btn btn-warning">Back To Player Search</a>
+{%endblock%}

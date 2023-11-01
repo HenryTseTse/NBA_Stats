@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+{%block title%}Team Search{%endblock%}
+
+{%block content%}
+<h1>Head-to-Head</h1>
+<form action="" method="POST" id="team-search-form">
+    {{ form.hidden_tag() }}
+
+    {% for field in form if field.widget.input_type != 'hidden' %}
+    <p>
+        {{field.label}}
+        {{ field(class="form-control", id=field.label.field_id) }}
+        {% for error in field.errors %}
+        <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </p>
+    {% endfor %}
+    <button class="btn btn-primary btn-block btn-lg">Search</button>
+</form>
+<a href="/" class="btn btn-warning">Cancel</a>
+{%endblock%}

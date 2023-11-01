@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+{%block title%}Player Career Stat Search{%endblock%}
+
+{%block content%}
+<h1>Player Career Search</h1>
+<br>
+<form action="" method="POST" id="player-search-form">
+    {{ form.hidden_tag() }}
+
+    {% for field in form if field.widget.input_type != 'hidden' %}
+    <p>
+        {{ field(placeholder=field.label.text, class="form-control", id=field.label.field_id) }}
+        {% for error in field.errors %}
+        <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </p>
+    {% endfor %}
+    <button class="btn btn-primary btn-block btn-lg">Search</button>
+</form>
+<a href="/" class="btn btn-warning">Cancel</a>
+{%endblock%}

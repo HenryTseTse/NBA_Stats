@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+{%block title%}Player Career Stats{%endblock%}
+
+{%block content%}
+<h1>Career Average Stats for {{name}}</h1>
+<img src="{{image}}">
+<table class="table">
+    <tr>
+        <th>Season</th>
+        <th>Game Played</th>
+        <th>Points Per Game</th>
+        <th>Rebound Per Game</th>
+        <th>Assists Per Game</th>
+        <th>Steal Per Game</th>
+        <th>Block Per Game</th>
+    </tr>
+    {%for result in results%}
+    <tr>
+        <td>{{result['season']}}</td>
+        <td>{{result['games_played']}}</td>
+        <td>{{result['pts']}}</td>
+        <td>{{result['reb']}}</td>
+        <td>{{result['ast']}}</td>
+        <td>{{result['stl']}}</td>
+        <td>{{result['blk']}}</td>
+    </tr>
+    {%endfor%}
+</table>
+
+{%endblock%}

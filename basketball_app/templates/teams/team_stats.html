@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block title%}Team Stats{%endblock%}
+
+{%block content%}
+<h1>NBA Teams</h1>
+<br>
+<h2>Team Stats</h2>
+{% if results %}
+    <table class="table">
+        <tr>
+            <th>Date</th>
+            <th>Home</th>
+            <th>Points</th>
+            <th>Away</th>
+            <th>Points</th>
+        </tr>
+        {%for result in results%}
+        <tr>
+            <td>{{result['date']}}</td>
+            <td>{{result['home_team']}}</td>
+            <td>{{result['home_score']}}</td>
+            <td>{{result['visitor_team']}}</td>
+            <td>{{result['visitor_score']}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+{% else %}
+    <h2>No PlayOff Games Found</h2>
+{% endif %}
+
+{%endblock%}

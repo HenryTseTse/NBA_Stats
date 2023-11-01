@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%block title%}Teams{%endblock%}
+
+{%block content%}
+<h1>NBA Teams</h1>
+<br>
+<h2>East Teams</h2>
+<table class="table">
+    <tr>
+        <th>Abbreviation</th>
+        <th>Name</th>
+        <th>City</th>
+    </tr>
+    {%for result in results if result['conference'] == 'East'%}
+    <tr>
+        <td><a href = "https://nba.com/{{result['name']}}" target="_blank">{{result['abbreviation']}}</a></td>
+        <td>{{result['name']}}</td>
+        <td>{{result['city']}}</td>
+    </tr>
+    {%endfor%}
+</table>
+<br>
+<h2>West Teams</h2>
+<table class="table">
+    <tr>
+        <th>Abbreviation</th>
+        <th>Name</th>
+        <th>City</th>
+    </tr>
+    {%for result in results if result['conference'] == 'West'%}
+    <tr>
+        <td><a href = "https://nba.com/{{result['name']}}">{{result['abbreviation']}}</a></td>
+        <td>{{result['name']}}</td>
+        <td>{{result['city']}}</td>
+    </tr>
+    {%endfor%}
+</table>
+
+{%endblock%}

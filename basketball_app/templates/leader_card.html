@@ -1,0 +1,97 @@
+{%macro leaders(scoring_leaders, rebounding_leaders, assisting_leaders, stealing_leaders, blocking_leaders) %}
+
+<div style="display: inline-block;">
+<button class="btn btn-outline-info dropdown-toggle" id="scoring-leader-dropdown">Current Scoring Leaders</button>
+<button class="btn btn-outline-info dropdown-toggle" id="rebounding-leader-dropdown">Current Rebound Leaders</button>
+<button class="btn btn-outline-info dropdown-toggle" id="assisting-leader-dropdown">Current Assist Leaders</button>
+<button class="btn btn-outline-info dropdown-toggle" id="stealing-leader-dropdown">Current Steal Leaders</button>
+<button class="btn btn-outline-info dropdown-toggle" id="blocking-leader-dropdown">Current Block Leaders</button>
+</div>
+
+<div class="card-group" id="scoring-leaders" style="display: none;">
+    {%for player in scoring_leaders%}
+    <div class="card">
+        <img class="card-img-top" src="{{player.image}}" alt="image not found...">
+        <div class="card-body">
+            <h5 class="card-title">{{player.first_name}} {{player.last_name}}</h5>
+            <p class="card-text"></p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Points Per Game: <b>{{player.pts}}</b> </li>
+                <li class="list-group-item">Rank: <b>{{player.rank}}</b> </li>
+                <li class="list-group-item">Season: {{player.season}}</li>
+            </ul>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+
+<div class="card-group" id="rebounding-leaders" style="display: none;">
+    {%for player in rebounding_leaders%}
+    <div class="card">
+        <img class="card-img-top" src="{{player.image}}" alt="image not found...">
+        <div class="card-body">
+            <h5 class="card-title">{{player.first_name}} {{player.last_name}}</h5>
+            <p class="card-text"></p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Rebounds Per Game: <b>{{player.reb}}</b> </li>
+                <li class="list-group-item">Rank: {{player.rank}} </li>
+                <li class="list-group-item">Season:{{player.season}}</li>
+            </ul>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+
+
+<div class="card-group" id="assisting-leaders" style="display: none;">
+    {%for player in assisting_leaders%}
+    <div class="card">
+        <img class="card-img-top" src="{{player.image}}" alt="image not found...">
+        <div class="card-body">
+            <h5 class="card-title">{{player.first_name}} {{player.last_name}}</h5>
+            <p class="card-text"></p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Assists Per Game: <b>{{player.ast}}</b> </li>
+                <li class="list-group-item">Rank: {{player.rank}} </li>
+                <li class="list-group-item">Season:{{player.season}}</li>
+            </ul>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+
+<div class="card-group" id="stealing-leaders" style="display: none;">
+    {%for player in stealing_leaders%}
+    <div class="card">
+        <img class="card-img-top" src="{{player.image}}" alt="image not found...">
+        <div class="card-body">
+            <h5 class="card-title">{{player.first_name}} {{player.last_name}}</h5>
+            <p class="card-text"></p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Steals Per Game: <b>{{player.stl}}</b> </li>
+                <li class="list-group-item">Rank: {{player.rank}} </li>
+                <li class="list-group-item">Season:{{player.season}}</li>
+            </ul>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+
+
+<div class="card-group" id="blocking-leaders" style="display: none;">
+    {%for player in blocking_leaders%}
+    <div class="card">
+        <img class="card-img-top" src="{{player.image}}" alt="image not found...">
+        <div class="card-body">
+            <h5 class="card-title">{{player.first_name}} {{player.last_name}}</h5>
+            <p class="card-text"></p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Blocks Per Game: <b>{{player.blk}}</b> </li>
+                <li class="list-group-item">Rank: {{player.rank}} </li>
+                <li class="list-group-item">Season:{{player.season}}</li>
+            </ul>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+{%endmacro%}

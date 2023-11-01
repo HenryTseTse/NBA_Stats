@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+{%block title%}Advanced Player Stats{%endblock%}
+
+{%block content%}
+<h1>Advanced Stats for {{name}}</h1>
+{% if image %}
+    <img src="{{image}}">
+{% endif %}
+<table class="table">
+    {%if results %}
+    <tr>
+        <th>Game Date</th>
+        <th>Playing For</th>
+        <th>Points</th>
+        <th>Rebound</th>
+        <th>Assists</th>
+        <th>Steal</th>
+        <th>Block</th>
+    </tr>
+    {%for result in results%}
+    <tr>
+        <td>{{result['game_date'][:10]}}</td>
+        <td>{{result['playing_for']}}</td>
+        <td>{{result['pts']}}</td>
+        <td>{{result['reb']}}</td>
+        <td>{{result['ast']}}</td>
+        <td>{{result['stl']}}</td>
+        <td>{{result['blk']}}</td>
+    </tr>
+    {%endfor%}
+    {%else%}
+    <p>There is no game that matched the searching criteria in the given time frame.</p>
+    {%endif%}
+</table>
+<a href="/api/player-stats" class="btn btn-primary">Back To Player Search</a>
+<a href="/api/adv-player-stats" class="btn btn-primary">Back To Advanced Player Search</a>
+{%endblock%}
