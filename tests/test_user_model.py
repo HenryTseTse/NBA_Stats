@@ -6,11 +6,12 @@
 
 
 import os
+import sys
 from unittest import TestCase
 from sqlalchemy import exc
-from basketball_app.models import User, db
-from basketball_app.functions import *
-from basketball_app.dal.database import signup
+from models import User, db
+from functions import *
+from dal.database import signup
 
 # BEFORE we import our app, let's set an environmental variable
 # to use a different database for tests (we need to do this
@@ -22,7 +23,7 @@ os.environ['DATABASE_URL'] = "postgresql:///nba-users-tests"
 
 # Now we can import app
 
-from basketball_app.app import app
+from app import app
 
 # Create our tables (we do this here, so we only create the tables
 # once for all tests --- in each test, we'll delete the data

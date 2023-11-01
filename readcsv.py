@@ -8,7 +8,7 @@ IMAGE_URL = (
 
 
 df = pd.read_csv(
-    "../static/NBA_Player_IDs.csv",
+    "./static/NBA_Player_IDs.csv",
     encoding="unicode_escape",
     usecols=["BBRefName", "NBAID"],
 ).dropna()
