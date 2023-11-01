@@ -6,12 +6,12 @@
 
 import os
 from unittest import TestCase
-from basketball_app.models import db
-from basketball_app.functions import *
+from models import db
+from functions import *
 
 os.environ['DATABASE_URL'] = "postgresql:///nba-users-tests"
 
-from basketball_app.app import app
+from app import app
 
 db.create_all()
 

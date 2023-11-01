@@ -4,10 +4,10 @@ import time
 import requests
 from requests.exceptions import HTTPError
 
-from basketball_app.app import app
-from basketball_app.dal.database import connect_db
-from basketball_app.models import db, PlayerStats
-from basketball_app.readcsv import get_player_image
+from app import app
+from dal.database import connect_db
+from models import db, PlayerStats
+from readcsv import get_player_image
 
 BASE_URL = "https://www.balldontlie.io/api/v1"
 DEFAULT_IMAGE = "/static/images/default.jpg"
