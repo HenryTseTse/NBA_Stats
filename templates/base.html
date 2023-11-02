@@ -25,14 +25,14 @@
             </div>
             <ul class="nav navbar-nav navbar-right">
                 {% if not g.user %}
-                <li><a href="/signup">Sign up</a></li>
-                <li><a href="/login">Log in</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+                <li><a href="/login">Log In</a></li>
                 {% else %}
                 <li><a href="/api/teams">Teams</a></li>
                 <li><a href="/api/head-to-head">H2H</a></li>
                 <li><a href="/api/player-stats">Player Search</a></li>
                 <li><a href="/api/adv-player-stats">Advanced Search</a></li>
-                <li><a href="/logout">Log out</a></li>
+                <li><a href="/logout">Log Out</a></li>
                 {% endif %}
             </ul>
         </div>
