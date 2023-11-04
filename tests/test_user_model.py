@@ -18,7 +18,7 @@ from dal.database import signup
 # before we import our app, since that will have already
 # connected to the database
 
-os.environ['DATABASE_URL'] = "postgresql:///nba-users-tests"
+os.environ["DATABASE_URL"] = "postgresql:///nba-users-tests"
 
 
 # Now we can import app
@@ -65,15 +65,14 @@ class UserModelTestCase(TestCase):
         res = super().tearDown()
         db.session.rollback()
         return res
-    
-    
+
     def test_repr_method(self):
         """Test repr method for users"""
         u = User(
             username="testuser",
             password="HASHED_PASSWORD",
             first_name="test",
-            last_name="user"
+            last_name="user",
         )
 
         db.session.add(u)
@@ -81,8 +80,7 @@ class UserModelTestCase(TestCase):
 
         expected_repr = f"<User {u.id} {u.username} {u.first_name} {u.last_name}>"
         self.assertEqual(repr(u), expected_repr)
-    
-    
+
     def test_signup(self):
         """Signing up a user"""
         u = signup("username", "password", "test", "one")
@@ -98,9 +96,9 @@ class UserModelTestCase(TestCase):
         self.assertEqual(u.first_name, "test")
         self.assertEqual(u.last_name, "one")
 
-        #Bcrypt strings start with $2b$
+        # Bcrypt strings start with $2b$
         self.assertTrue(u.password.startswith("$2b$"))
-    
+
     def test_invalid_username(self):
         """Invalid Username"""
         u = signup(None, "password", "test", "one")
@@ -108,15 +106,15 @@ class UserModelTestCase(TestCase):
         u.id = uid
         with self.assertRaises(exc.IntegrityError) as context:
             db.session.commit()
-        
+
     def test_invalid_password(self):
-        """Invalid Password""" 
+        """Invalid Password"""
         with self.assertRaises(ValueError) as context:
             signup("test", None, "test", "one")
 
         with self.assertRaises(ValueError) as context:
             signup("test", None, "test", "one")
-    
+
     def test_valid_authentication(self):
         u = User.authenticate(self.u1.username, "password")
         self.assertIsNotNone(u)
@@ -124,6 +122,6 @@ class UserModelTestCase(TestCase):
 
     def test_invalid_username(self):
         self.assertFalse(User.authenticate("notmyusername", "password"))
-    
+
     def test_invalid_password(self):
         self.assertFalse(User.authenticate(self.u1.username, "notmypassword"))

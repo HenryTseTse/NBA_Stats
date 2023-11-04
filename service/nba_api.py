@@ -53,15 +53,9 @@ def make_requests(url, query):
 
 def search_games(first_team, season, postseason):
     search_game_URL = f"{BASE_URL}/games"
+    query = {"seasons[]": season, "team_ids[]": first_team, "per_page": 100}
     if postseason == "true":
-        query = {
-            "seasons[]": season,
-            "team_ids[]": first_team,
-            "per_page": 100,
-            "postseason": "true",
-        }
-    else:
-        query = {"seasons[]": season, "team_ids[]": first_team, "per_page": 100}
+        query["postseason"] = "true"
     response = make_requests(search_game_URL, query)
     datas = response["data"]
     results = []
@@ -219,7 +213,7 @@ def get_player_advanced_stat(player_id, start_date, end_date, playerstats):
 
 
 def check_playerstat_against_criteria(player_actual_stats, target_stats):
-    # check if the stats are above the searching criteria
+    """Compare to Threshold set by User"""
     for i in range(len(player_actual_stats)):
         if not isinstance(player_actual_stats[i], int):
             player_actual_stats[i] = 0

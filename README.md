@@ -1,23 +1,27 @@
-## API
-https://sportsdata.io/developers/api-documentation/golf#/sports-data-feed
+## NBA Stats
+https://nba-stats-tvb5.onrender.com/
 
-#### Title of Site and Link to the URL Deployed
+### Description
+NBA Stats is used for basketball fans to follow along with today's game as well as learn the history of the game. Statistics are a big part of basketball as box scores is a convenient way to see how their favorite teams and players are performing. Fans can access and learn about different teams, as they can even quickly gain access to information straight from the Offical NBA Website. 
 
-#### Website Description
-My website is made for golf users that want to keep track of their golf rounds and have in depth statistics of their golf game. There are forms that take in additional information when recording golf rounds to provide in depth statistics about your golf game to help you improve! There is also a golf blog that keeps up to date with the PGA Tour including world rankings, golf news, leaderboards and profile description of players
+### Features
 
-#### Features
-I have implemented many types of forms for editing and adding rounds, logging in and out for the user. Many golf statistics are calculated by only a few extra implementation to the golf round forms in which I dynamically calculated different stats with little information. This shows a in depth and real look of your golf portfolio with little effort. Calculations are done for you to see different parts of your game. This is also great to place to keep track of your golf rounds and calculates your handicap
+Users can quickly access the top 5 leaders in each statistical category right on the homepage. There are dropdown buttons to quickly toggle players for major categories with headshots for each player. This allows the user to be more integrated with the application as stats are updated close-to-date depending on when the data was last scraped.
 
-#### Standard Flow
-- First webpage is a home page that welcome a user and tells the user about the webpage, showing different screenshots of the website and description of images
-- You are able to either log in or sign up, and after that you will be redirected to the home page which shows your golf portfolio
-- Now whether you are a new user or existing ones, stats will automatically be adjusted to the rounds you have added. If there are no rounds, all stats will be set to 0 until you add a round
-- There is another tab that links to a golf news tab which includes a overview of the golf news on a page. If you want to dive into specific leaderboards, look at upcoming PGA schedules, world rankings and PGA tour profiles, there are seprate tabs to get to those specific information
+Once registered, users can access multiple forms to view various team and player stats. There are also multiple forms that allow fans to search through player historical stats and view stats of certain games where players hit a certain threshold. The **Teams** tab gives information to the user about the abbreviation for each team and also allows the user to quickly access each teams' offical NBA homepage. Using the abbreviations provided from the teams tab, the **H2H** feature allows the user to filter through each team and view additional stats for the provided season.
 
-#### Technology stack
-- I used flask for the main part of the website creating routes, HTML pages, forms
-- I use SQLAlchemy to help me grab and filter information from my DataBase
-- I use WTForms to help me create all my forms for my webpage
-- I use JS with the API to help fetch and create/display data on the webpage
-- CSS and Bootstrap to style my webpages 
+Users also have access to player stats. Through the **Player Search** feature, users provide a first and last name that will generate season career stats along with a headshot of the player. In addition, the **Advanced Search** options give users the ability to view detailed game stats in which a timeframe is provided and optional thresholds for certain stats are also provided.
+
+### API
+- API: https://www.balldontlie.io/home.html#introduction
+- Image Src: https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/{player_id}.png
+
+There was no free alternative option to easily provide player headshots. I noticed a pattern from the official NBA website in how they sourced their images. Each image had a given link and a NBAID used for each player. I data scrapped NBAIDs for each player and stored them into a database to quickly access each image.
+
+### Technology Stack
+- Python was the main programming language used for this web application to populate our database and implement Back-end and Front-end technologies
+- Flask was the main component for creating routes, HTML pages, and forms
+- SQLAlchemy was used to retrieve and filter information from the database
+- WTForms was used to create forms for the application
+- Javascript was used along with AJAX to create the toggle feature to asynchronously display "Top 5" without interfering with the display and behavior of the existing page
+- CSS and Bootstrap was used to style the website
