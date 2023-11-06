@@ -34,7 +34,7 @@ timer = Timer(0)
 
 
 def sleep_timer(i):
-    # this timer stops for 60 secs after every 50 requests. This is due to the limit of the amount of requests per minute of the API site.
+    """Set Timer for API request due to constraints"""
     while i > 50:
         time.sleep(60)
         i = 0
@@ -201,11 +201,11 @@ def get_player_advanced_stat(player_id, start_date, end_date, playerstats):
                         {
                             "game_date": game["game"]["date"],
                             "playing_for": game["team"]["name"],
-                            "pts": game["pts"],
-                            "reb": game["reb"],
-                            "ast": game["ast"],
-                            "stl": game["stl"],
-                            "blk": game["blk"],
+                            "pts": game.get("pts", 0),
+                            "reb": game.get("reb", 0),
+                            "ast": game.get("ast", 0),
+                            "stl": game.get("stl", 0),
+                            "blk": game.get("blk", 0),
                         }
                     )
 

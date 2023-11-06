@@ -103,44 +103,18 @@ def parse_stat_by_category(
 ):
     """Determine Top 5"""
     if category == "pts":
-        top5_guys.top5_scorers = decide_top5_players(
-            top5_guys.top5_scorers,
-            cat_stat,
-            category,
-            first_name,
-            last_name,
-            player_data,
-        )
+        search_id = top5_guys.top5_scorers 
     elif category == "reb":
-        top5_guys.top5_rebounders = decide_top5_players(
-            top5_guys.top5_rebounders,
-            cat_stat,
-            category,
-            first_name,
-            last_name,
-            player_data,
-        )
+        search_id = top5_guys.top5_rebounders
     elif category == "ast":
-        top5_guys.top5_assisters = decide_top5_players(
-            top5_guys.top5_assisters,
-            cat_stat,
-            category,
-            first_name,
-            last_name,
-            player_data,
-        )
+        search_id = top5_guys.top5_assisters
     elif category == "stl":
-        top5_guys.top5_stealers = decide_top5_players(
-            top5_guys.top5_stealers,
-            cat_stat,
-            category,
-            first_name,
-            last_name,
-            player_data,
-        )
+        search_id = top5_guys.top5_stealers
     else:
-        top5_guys.top5_blockers = decide_top5_players(
-            top5_guys.top5_blockers,
+        search_id = top5_guys.top5_blockers 
+    
+    results = decide_top5_players(
+            search_id,
             cat_stat,
             category,
             first_name,
@@ -148,7 +122,7 @@ def parse_stat_by_category(
             player_data,
         )
 
-    return top5_guys
+    return results
 
 
 def get_top5_category_players(id, first_name, last_name, top5_guys):

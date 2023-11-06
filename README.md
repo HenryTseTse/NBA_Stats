@@ -25,3 +25,9 @@ There was no free alternative option to easily provide player headshots. I notic
 - WTForms was used to create forms for the application
 - Javascript was used along with AJAX to create the toggle feature to asynchronously display "Top 5" without interfering with the display and behavior of the existing page
 - CSS and Bootstrap was used to style the website
+
+### Developer Notes
+- Create Virtual Environment: python -m venv venv (ENV Version: Python 3.7.10)
+- Activate Virtual Environment: source venv/bin/activate
+- Install Dependancies: pip install requirements.txt
+- Preload Database: python scripts/seed.py, python scripts/top5.py

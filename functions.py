@@ -113,6 +113,10 @@ def logout():
 
 
 def get_player_stats():
+    if not g.user:
+        flash("Access Unauthorized", "danger")
+        return redirect("/")
+    
     form = PlayerForm()
     if form.validate_on_submit():
         player_image = get_player_image(
@@ -137,6 +141,10 @@ def get_player_stats():
 
 
 def get_adv_player_stats():
+    if not g.user:
+        flash("Access Unauthorized", "danger")
+        return redirect("/")
+    
     form = AdvancedForm()
     if form.validate_on_submit():
         player_image = get_player_image(
@@ -174,6 +182,10 @@ def get_teams():
 
 
 def get_h2h_stats():
+    if not g.user:
+        flash("Access Unauthorized", "danger")
+        return redirect("/")
+    
     form = TeamsForm()
     if form.validate_on_submit():
         team = form.team.data
