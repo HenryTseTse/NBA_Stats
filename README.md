@@ -2,7 +2,7 @@
 https://nba-stats-tvb5.onrender.com/
 
 ### Description
-NBA Stats is used for basketball fans to follow along with today's game as well as learn the history of the game. Statistics are a big part of basketball as box scores is a convenient way to see how their favorite teams and players are performing. Fans can access and learn about different teams, as they can even quickly gain access to information straight from the Offical NBA Website. 
+NBA Stats is used for basketball fans to follow along with today's game as well as learn the history of the game. Statistics are a big part of basketball as box scores is a convenient way to see how their favorite teams and players are performing. Fans can access and learn about different teams, as they can even quickly gain access to information straight from the Official NBA Website. 
 
 ### Features
 
